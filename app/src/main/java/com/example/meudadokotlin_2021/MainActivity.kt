@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val btRoll: Button = findViewById(R.id.btRoll)
-        val diceImage:ImageView = findViewById(R.id.imageView)
+        val diceImage: ImageView = findViewById(R.id.imageView)
 
         btRoll.setOnClickListener {
 
@@ -22,6 +22,12 @@ class MainActivity : AppCompatActivity() {
             val random= rollDice()
             val drawableRes = when (random){
                 1 -> R.drawable.dice_1
+                2 -> R.drawable.dice_2
+                3 -> R.drawable.dice_3
+                4 -> R.drawable.dice_4
+                5 -> R.drawable.dice_5
+                6 -> R.drawable.dice_6
+
                 else -> R.drawable.empty_dice
             }
 
@@ -32,7 +38,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun rollDice():Int {
-        var randomNum:Int = Random.nextInt()+ 1
+        var randomNum:Int = (Random.nextInt(from= 1, until = 7))
         return randomNum
     }
 }
